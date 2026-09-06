@@ -148,6 +148,39 @@
   .about-card b{font-family:'Amiri',serif;font-size:1.5rem;color:var(--terracotta);display:block;}
   .about-card span{font-size:.85rem;color:#6b6555;}
 
+  /* ===== Registry banner (عن القاهرة) ===== */
+  .registry-banner{
+    margin-top:46px;
+    background:linear-gradient(135deg, var(--night), var(--night-2));
+    color:var(--parchment);
+    border-radius:8px 34px 8px 34px;
+    padding:34px;
+    display:flex;justify-content:space-between;align-items:center;gap:30px;
+    flex-wrap:wrap;
+    box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  .registry-banner::before{
+    content:"";position:absolute;inset:0;opacity:.5;
+    background-image:repeating-linear-gradient(45deg, rgba(201,150,44,.08) 0 2px, transparent 2px 28px);
+    pointer-events:none;
+  }
+  .registry-banner-text{position:relative;z-index:1;max-width:640px;}
+  .registry-banner-text h3{font-family:'Amiri',serif;font-size:1.6rem;color:var(--gold-light);margin-bottom:10px;}
+  .registry-banner-text p{color:var(--parchment-2);font-size:.96rem;}
+  .registry-banner-stats{display:flex;gap:28px;position:relative;z-index:1;flex-wrap:wrap;}
+  .registry-banner-stats div{text-align:center;}
+  .registry-banner-stats b{display:block;font-family:'Amiri',serif;font-size:1.7rem;color:var(--gold-light);}
+  .registry-banner-stats span{font-size:.78rem;color:var(--parchment-2);}
+  .landmark-registry-link{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    font-size:.8rem;font-weight:700;color:var(--terracotta);
+    border:1px dashed var(--terracotta);border-radius:14px;padding:6px 12px;
+    background:rgba(168,92,50,.06);
+  }
+  .landmark-registry-link:hover{background:rgba(168,92,50,.14);}
+  .on-dark .landmark-registry-link{color:var(--gold-light);border-color:var(--gold-light);background:rgba(227,185,92,.08);}
+
   /* ===== Cards grid (landmarks/dining/hotels/crafts) ===== */
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
   .card{
@@ -184,7 +217,36 @@
   .card-cta:hover{background:var(--teal-dark);}
 
   /* ===== Routes / timeline ===== */
+  .route-section-label{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Reem Kufi',sans-serif;font-size:.8rem;letter-spacing:.08em;
+    color:var(--gold-light);border:1px dashed var(--line);border-radius:20px;
+    padding:8px 16px;margin-bottom:22px;
+  }
   .routes-tabs{display:flex;gap:12px;margin-bottom:38px;flex-wrap:wrap;}
+  .route-tab.builder-tab{background:linear-gradient(135deg,var(--terracotta),#7a3f1f);color:#fff;border-color:transparent;}
+  .route-tab.builder-tab.active{background:var(--gold);color:var(--night);}
+  /* ===== Builder (اصنع مسار زيارتك) ===== */
+  .builder-intro{color:var(--parchment-2);font-size:.95rem;margin-bottom:22px;max-width:760px;}
+  .builder-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-bottom:24px;}
+  .builder-group h4{color:var(--gold-light);font-family:'Amiri',serif;font-size:1.05rem;margin-bottom:12px;}
+  .builder-chips{display:flex;flex-wrap:wrap;gap:9px;}
+  .chip-check{
+    display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+    border:1px solid var(--line);border-radius:16px;padding:8px 14px;
+    font-size:.82rem;color:var(--parchment-2);background:rgba(242,232,208,.04);
+    transition:border-color .2s, color .2s, background .2s;
+  }
+  .chip-check input{accent-color:var(--gold);}
+  .chip-check.sel{border-color:var(--gold);color:var(--gold-light);background:rgba(201,150,44,.12);}
+  .builder-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:24px;}
+  .builder-count{font-size:.85rem;color:var(--parchment-2);}
+  .builder-result{
+    background:rgba(242,232,208,.06);border:1px solid var(--line);
+    border-radius:4px 20px 4px 20px;padding:22px;display:none;
+  }
+  .builder-result.show{display:block;}
+  .builder-result h4{color:var(--gold-light);font-family:'Amiri',serif;margin-bottom:14px;font-size:1.1rem;}
   .route-tab{
     padding:10px 20px;border-radius:20px;border:1px solid var(--line);
     background:transparent;color:var(--parchment-2);font-weight:500;cursor:pointer;font-family:'Tajawal';
@@ -220,29 +282,6 @@
   .step-list li::before{content:counter(step);position:absolute;right:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:.78rem;display:flex;align-items:center;justify-content:center;font-weight:700;}
   .ride-app-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
   .ride-chip{padding:8px 16px;border-radius:16px;background:var(--night);color:var(--parchment);font-size:.82rem;font-weight:600;}
-
-  /* ===== Flights & Trains ===== */
-  .search-panel{
-    display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:end;
-    background:var(--cream);border:1px solid var(--line);border-radius:6px 26px 6px 26px;
-    padding:26px;box-shadow:var(--shadow);margin-bottom:44px;
-  }
-  .search-panel .field{margin-bottom:0;}
-  .search-panel .btn{height:46px;width:100%;justify-content:center;}
-  .on-dark .search-panel{background:rgba(242,232,208,.06);}
-  .on-dark .search-panel .field label{color:var(--parchment-2);}
-  .on-dark .search-panel input,.on-dark .search-panel select{background:rgba(242,232,208,.09);border-color:var(--line);color:var(--parchment);}
-  .on-dark .search-panel input::placeholder{color:var(--parchment-2);}
-  .results-note{font-size:.9rem;margin-bottom:20px;color:#5b5646;}
-  .on-dark .results-note{color:var(--parchment-2);}
-  .trip-tag{background:var(--terracotta);}
-  @media(max-width:980px){.search-panel{grid-template-columns:1fr 1fr;}}
-  @media(max-width:720px){.search-panel{grid-template-columns:1fr;}}
-
-  /* ===== Events / Opera / Museums / Culture houses ===== */
-  .events-tabs{display:flex;gap:12px;margin-bottom:34px;flex-wrap:wrap;}
-  .event-tab{padding:10px 20px;border-radius:20px;border:1px solid var(--line);background:transparent;color:var(--parchment-2);font-weight:500;cursor:pointer;font-family:'Tajawal';}
-  .event-tab.active{background:var(--gold);color:var(--night);border-color:var(--gold);}
 
   /* ===== Shop ===== */
   .shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
@@ -439,9 +478,6 @@
         <li><a href="#dining">مطاعم ومقاهي</a></li>
         <li><a href="#stay">فنادق وإقامة</a></li>
         <li><a href="#transport">المواصلات</a></li>
-        <li><a href="#flights">حجز الطيران</a></li>
-        <li><a href="#trains">حجز القطارات</a></li>
-        <li><a href="#events">الأوبرا والمتاحف</a></li>
         <li><a href="#shop">الهدايا</a></li>
       </ul>
     </nav>
@@ -490,6 +526,21 @@
         <div class="about-card"><b>العثماني</b><span>الوكالات والأسبلة وبيوت التجار الكبار</span></div>
       </div>
     </div>
+
+    <!-- ===== الآثار المسجلة بالقاهرة التاريخية ===== -->
+    <div class="registry-banner">
+      <div class="registry-banner-text">
+        <p class="eyebrow" style="margin-bottom:8px;">قاعدة بيانات رسمية موسعة</p>
+        <h3>الآثار المسجلة بالقاهرة التاريخية</h3>
+        <p>سجل تفاعلي شامل لأكثر من ٩٠٠ أثر مسجل داخل القاهرة التاريخية وضواحيها، يضم بيانات الموقع، الحى، النوع، العصر، الحاكم، المنشئ، الوصف المعماري، وموقف التسجيل لكل أثر — مع إمكانية البحث والفلترة والعرض على خريطة تفاعلية.</p>
+        <a href="antiques-explorer.html" target="_blank" class="btn btn-gold" style="margin-top:18px;">🏺 تصفّح سجل الآثار الكامل</a>
+      </div>
+      <div class="registry-banner-stats">
+        <div><b>+900</b><span>أثر مسجل بالقاعدة</span></div>
+        <div><b>18</b><span>حى وضاحية</span></div>
+        <div><b>10</b><span>عصور وحقب حاكمة</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -513,8 +564,10 @@
     <div class="section-head">
       <p class="eyebrow">خطط رحلتك</p>
       <h2>المسارات السياحية المقترحة</h2>
-      <p>ثلاثة مسارات مصمَّمة حسب الاهتمام والوقت المتاح، قابلة للحجز كجولة كاملة بمرشد.</p>
+      <p>خمسة مسارات: أربعة مسارات جاهزة مصمَّمة حسب الاهتمام والوقت المتاح وقابلة للحجز مباشرة، ومسار خامس تفاعلي تصمّمه بنفسك من العناصر التي تفضّلها.</p>
     </div>
+
+    <div class="route-section-label"><span>📋</span> مسارات مقترحة</div>
     <div class="routes-tabs" id="routeTabs"></div>
     <div id="routePanels"></div>
   </div>
@@ -619,87 +672,6 @@
   </div>
 </section>
 
-<!-- ================= FLIGHTS ================= -->
-<section id="flights" class="on-parchment">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">اطلب رحلتك الجوية</p>
-      <h2>حجز رحلات الطيران إلى القاهرة</h2>
-      <p>ابحث عن رحلات إلى مطار القاهرة الدولي من أهم المدن، وأكمل الحجز والدفع الفوري مباشرة من الموقع.</p>
-    </div>
-    <form class="search-panel" id="flightSearchForm" onsubmit="return searchFlights(event)">
-      <div class="field">
-        <label>من مدينة</label>
-        <select id="flightFrom">
-          <option value="">كل المدن</option>
-          <option value="دبي">دبي (DXB)</option>
-          <option value="الرياض">الرياض (RUH)</option>
-          <option value="جدة">جدة (JED)</option>
-          <option value="لندن">لندن (LHR)</option>
-          <option value="إسطنبول">إسطنبول (IST)</option>
-        </select>
-      </div>
-      <div class="field"><label>إلى</label><input type="text" value="القاهرة (CAI)" disabled></div>
-      <div class="field"><label>تاريخ السفر</label><input type="date" id="flightDate"></div>
-      <div class="field"><label>عدد المسافرين</label><input type="number" min="1" value="1" id="flightPax"></div>
-      <div class="field">
-        <label>الدرجة</label>
-        <select id="flightClass"><option>اقتصادية</option><option>رجال أعمال</option><option>أولى</option></select>
-      </div>
-      <button class="btn btn-gold" type="submit">✈️ ابحث عن رحلات</button>
-    </form>
-    <p class="results-note" id="flightsNote">تُعرض أدناه رحلات تجريبية لأغراض العرض — إتاحة المقاعد والأسعار الفعلية تُجلب من نظام الحجز المرتبط عند التفعيل.</p>
-    <div class="grid" id="flightResults"></div>
-  </div>
-</section>
-
-<!-- ================= TRAINS ================= -->
-<section id="trains" class="on-dark lattice-bg">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">بالسكة الحديد</p>
-      <h2>حجز تذاكر القطارات من القاهرة</h2>
-      <p>تنقّل إلى الوجهات الأثرية الكبرى — الإسكندرية والأقصر وأسوان وغيرها — بقطارات الهيئة القومية لسكك حديد مصر.</p>
-    </div>
-    <form class="search-panel" id="trainSearchForm" onsubmit="return searchTrains(event)">
-      <div class="field"><label>من محطة</label><input type="text" value="القاهرة (رمسيس)" disabled></div>
-      <div class="field">
-        <label>إلى وجهة</label>
-        <select id="trainTo">
-          <option value="">كل الوجهات</option>
-          <option value="الإسكندرية">الإسكندرية</option>
-          <option value="الأقصر">الأقصر</option>
-          <option value="أسوان">أسوان</option>
-          <option value="بورسعيد">بورسعيد</option>
-          <option value="المنيا">المنيا (تل العمارنة)</option>
-        </select>
-      </div>
-      <div class="field"><label>تاريخ السفر</label><input type="date" id="trainDate"></div>
-      <div class="field"><label>عدد المسافرين</label><input type="number" min="1" value="1" id="trainPax"></div>
-      <div class="field">
-        <label>الدرجة</label>
-        <select id="trainClass"><option>مكيفة ثانية</option><option>مكيفة أولى</option><option>VIP</option><option>عربة نوم</option></select>
-      </div>
-      <button class="btn btn-gold" type="submit">🚆 ابحث عن قطارات</button>
-    </form>
-    <p class="results-note" id="trainsNote">مواعيد وأسعار تجريبية للعرض — يتم ربطها بنظام حجز سكك حديد مصر الفعلي عند التفعيل.</p>
-    <div class="grid" id="trainResults"></div>
-  </div>
-</section>
-
-<!-- ================= EVENTS / OPERA / MUSEUMS / CULTURE HOUSES ================= -->
-<section id="events" class="on-parchment">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">فعاليات وعروض حية</p>
-      <h2>الأوبرا والمتاحف ودور وزارة الثقافة</h2>
-      <p>احجز تذكرتك لعروض دار الأوبرا المصرية، وزيارات المتاحف الكبرى، وفعاليات دور العرض التابعة لوزارة الثقافة.</p>
-    </div>
-    <div class="events-tabs" id="eventsTabs"></div>
-    <div class="grid" id="eventsGrid"></div>
-  </div>
-</section>
-
 <!-- ================= SHOP ================= -->
 <section id="shop" class="on-parchment">
   <div class="container">
@@ -765,32 +737,6 @@
   </div>
 </div>
 
-<!-- ================= TRIP BOOKING MODAL (flights / trains) ================= -->
-<div class="modal-overlay" id="tripModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('tripModal')">×</button>
-    <h3 id="tripTitle">حجز رحلة</h3>
-    <p class="sub" id="tripSummary"></p>
-    <div class="field"><label>الاسم الكامل</label><input type="text" placeholder="اسمك" id="tripName"></div>
-    <div class="field-row">
-      <div class="field"><label>رقم الهاتف</label><input type="tel" placeholder="01xxxxxxxxx" id="tripPhone"></div>
-      <div class="field"><label>عدد المسافرين</label><input type="number" min="1" value="1" id="tripPax"></div>
-    </div>
-    <div class="field"><label>طريقة الدفع</label>
-      <div class="pay-select" id="tripPaySelect">
-        <div class="pay-opt sel" onclick="selectPay(this)">InstaPay</div>
-        <div class="pay-opt" onclick="selectPay(this)">فودافون كاش</div>
-        <div class="pay-opt" onclick="selectPay(this)">بطاقة Meeza</div>
-        <div class="pay-opt" onclick="selectPay(this)">فوري</div>
-        <div class="pay-opt" onclick="selectPay(this)">بطاقة ائتمان</div>
-      </div>
-    </div>
-    <div class="modal-actions">
-      <button class="btn btn-gold" style="flex:1;justify-content:center" onclick="confirmTrip()">تأكيد الحجز والدفع</button>
-    </div>
-  </div>
-</div>
-
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="container">
@@ -836,9 +782,6 @@
           <li><a href="#dining">مطاعم ومقاهي</a></li>
           <li><a href="#stay">فنادق وإقامة</a></li>
           <li><a href="#transport">المواصلات والمترو</a></li>
-          <li><a href="#flights">حجز الطيران</a></li>
-          <li><a href="#trains">حجز القطارات</a></li>
-          <li><a href="#events">الأوبرا والمتاحف</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -1056,15 +999,6 @@ function localGuideAnswer(raw){
   if(/هدي|هدايا|تذكار|تسوق/.test(q)){
     return 'متجر الهدايا بالموقع يضم فوانيس نحاسية، لوحات بردي، عطورًا شرقية، وقطع أرابيسك خشبية — يمكنك الدفع فوريًا عبر InstaPay أو ميزة أو فودافون كاش من قسم "الهدايا".';
   }
-  if(/طيران|طائرة|مطار|رحلة جوية|فلايت/.test(q)){
-    return 'يمكنك البحث عن رحلات الطيران إلى مطار القاهرة الدولي وحجزها مباشرة من قسم "حجز الطيران" بالموقع، مع اختيار المدينة والتاريخ وعدد المسافرين.';
-  }
-  if(/قطار|قطارات|سكة حديد|رمسيس/.test(q)){
-    return 'قسم "حجز القطارات" يتيح لك حجز تذاكر إلى الإسكندرية أو الأقصر أو أسوان أو غيرها انطلاقًا من محطة رمسيس، مع اختيار الدرجة المناسبة.';
-  }
-  if(/أوبرا|متحف|متاحف|فعالية|فعاليات|تذكرة|حفل|باليه/.test(q)){
-    return 'في قسم "الأوبرا والمتاحف" ستجد عروض دار الأوبرا المصرية، وتذاكر دخول المتاحف الكبرى، وفعاليات دور وزارة الثقافة، مع إمكانية حجز التذكرة فورًا.';
-  }
   if(/تاريخ|قديم|من بنى|متى تأسست|يونسكو/.test(q)){
     return 'تأسست القاهرة عام 969م على يد جوهر الصقلي، وأُدرجت القاهرة التاريخية على قائمة التراث العالمي لليونسكو عام 1979 لكثافتها الأثرية النادرة. التفاصيل الكاملة في قسم "عن القاهرة".';
   }
@@ -1076,15 +1010,15 @@ function localGuideAnswer(raw){
 const icon = (path)=>`<svg viewBox="0 0 24 24" fill="none" stroke="#F2E8D0" stroke-width="1.6"><path d="${path}"/></svg>`;
 
 const landmarks = [
-  {name:"شارع المعز لدين الله", era:"فاطمي – مملوكي", desc:"أطول متحف مفتوح في العالم الإسلامي، يضم عشرات المساجد والوكالات والأسبلة على مسافة واحدة."},
-  {name:"خان الخليلي", era:"مملوكي", desc:"السوق التاريخي الأشهر في القاهرة، للتسوق والحرف اليدوية والمقاهي العتيقة."},
-  {name:"قلعة صلاح الدين", era:"أيوبي", desc:"قلعة دفاعية شُيّدت لحماية القاهرة، وتضم مسجد محمد علي بقبابه الرخامية."},
-  {name:"جامع السلطان حسن", era:"مملوكي", desc:"تحفة معمارية ضخمة تُعد من أروع نماذج العمارة المملوكية الدينية."},
-  {name:"الجامع الأزهر", era:"فاطمي", desc:"أول جامع بُني في القاهرة عام 970م، ومنارة علمية إسلامية عريقة حتى اليوم."},
-  {name:"الكنيسة المعلّقة", era:"قبطي", desc:"من أقدم الكنائس الأثرية في مصر، مبنية فوق برج حصن بابليون الروماني."},
-  {name:"بيت السحيمي", era:"عثماني", desc:"بيت أثري محفوظ يعكس نمط الحياة والعمارة السكنية في القاهرة العثمانية."},
-  {name:"باب زويلة", era:"فاطمي", desc:"أحد أبواب القاهرة الجنوبية الباقية، ويتيح صعودًا لمئذنتيه لإطلالة بانورامية."},
-  {name:"مسجد ابن طولون", era:"عباسي", desc:"من أقدم المساجد المحتفظة بشكلها الأصلي، بمئذنته الحلزونية الفريدة."},
+  {name:"شارع المعز لدين الله", era:"فاطمي – مملوكي", desc:"أطول متحف مفتوح في العالم الإسلامي، يضم عشرات المساجد والوكالات والأسبلة على مسافة واحدة.", registryName:"حى وسط ـ القاهرة"},
+  {name:"خان الخليلي", era:"مملوكي", desc:"السوق التاريخي الأشهر في القاهرة، للتسوق والحرف اليدوية والمقاهي العتيقة.", registryName:"خان الخليلي"},
+  {name:"قلعة صلاح الدين", era:"أيوبي", desc:"قلعة دفاعية شُيّدت لحماية القاهرة، وتضم مسجد محمد علي بقبابه الرخامية.", registryName:"قلعة الجبل"},
+  {name:"جامع السلطان حسن", era:"مملوكي", desc:"تحفة معمارية ضخمة تُعد من أروع نماذج العمارة المملوكية الدينية.", registryName:"مسجد السلطان حسن"},
+  {name:"الجامع الأزهر", era:"فاطمي", desc:"أول جامع بُني في القاهرة عام 970م، ومنارة علمية إسلامية عريقة حتى اليوم.", registryName:"الجامع الأزهر"},
+  {name:"الكنيسة المعلّقة", era:"قبطي", desc:"من أقدم الكنائس الأثرية في مصر، مبنية فوق برج حصن بابليون الروماني.", registryName:"كنيسة المعلقة"},
+  {name:"بيت السحيمي", era:"عثماني", desc:"بيت أثري محفوظ يعكس نمط الحياة والعمارة السكنية في القاهرة العثمانية.", registryName:"منزل السحيمى"},
+  {name:"باب زويلة", era:"فاطمي", desc:"أحد أبواب القاهرة الجنوبية الباقية، ويتيح صعودًا لمئذنتيه لإطلالة بانورامية.", registryName:"باب زويلة"},
+  {name:"مسجد ابن طولون", era:"عباسي", desc:"من أقدم المساجد المحتفظة بشكلها الأصلي، بمئذنته الحلزونية الفريدة.", registryName:"أحمد بن طولون"},
 ];
 
 const routes = [
@@ -1119,6 +1053,20 @@ const routes = [
       {t:"ورش النحاس بخان الخليلي", d:"تجربة حية لصناعة الأواني النحاسية المطروقة."},
       {t:"سوق العطارين", d:"تسوق العطور والتوابل والبخور التقليدي."},
       {t:"بيت السحيمي", d:"ختام المسار بجولة داخل بيت أثري مرمم."},
+    ]
+  },
+  {
+    tab:"مسار من الماء إلى الروح",
+    duration:"نحو ٣ ساعات و٣٥ دقيقة (نسخة مختصرة: ساعتان)",
+    difficulty:"تجربة درامية تفسيرية متكاملة: قارب نيلي + مشي + نقل بري مكيّف، مناسبة لمن يبحث عن معنى لا معلومة فقط",
+    special:true,
+    stops:[
+      {t:"مقياس النيل بجزيرة الروضة", d:"الفصل الأول: حين كان النيل يقرر مصير المدينة — الوقوف أمام العمود الذي كان يقيس مزاج مدينة كاملها.", registryName:"مقياس النيل"},
+      {t:"الرحلة النيلية إلى شارع قصر العيني", d:"الفصل الثاني: القاهرة التي تنظر إلى النهر — إبحار على النيل يقرأ خط الزمن من القاهرة القديمة إلى الخديوية."},
+      {t:"برج المأخذ وسور مجرى العيون (عين الصيرة)", d:"الفصل الثالث: عندما أصبح الماء هندسة — كيف حمل المهندسون الماء إلى القلعة دون مضخة حديثة.", registryName:"قناطر المياه"},
+      {t:"مسجد السلطان حسن ومسجد الرفاعي", d:"الفصل الرابع: عندما تحدث السلطة بلغة الحجر — حوار معماري بين سلطان مملوكي وسلطان أراد أن يبقى اسمه.", registryName:"مسجد السلطان حسن"},
+      {t:"قصر الأمير طاز", d:"الفصل الخامس: عندما يفتح القصر بابه للإنسان — ظلال بشرية تروي التاريخ الاجتماعي خلف واجهة القصر.", registryName:"قصر الأمير طاز"},
+      {t:"التكية المولوية بشارع السيوفية", d:"الفصل السادس والختام: عندما يتحول التاريخ إلى روح — من صدى الماء إلى دوران الدراويش، ثم صندوق الذاكرة الختامي.", registryName:"التكية المولوية"},
     ]
   },
 ];
@@ -1161,55 +1109,11 @@ const shopItems = [
   {name:"مسبحة كهرمان يدوية", price:"١٢٠ ج.م"},
 ];
 
-const flights = [
-  {airline:"مصر للطيران", flightNo:"MS 0785", from:"دبي (DXB)", to:"القاهرة (CAI)", depart:"١٠:٣٠ ص", arrive:"١:٠٠ م", duration:"٣س ٣٠د", price:"٦٥٠٠ ج.م"},
-  {airline:"طيران الإمارات", flightNo:"EK 0923", from:"دبي (DXB)", to:"القاهرة (CAI)", depart:"٢:١٥ م", arrive:"٤:٤٥ م", duration:"٣س ٣٠د", price:"٧٢٠٠ ج.م"},
-  {airline:"الخطوط السعودية", flightNo:"SV 0311", from:"الرياض (RUH)", to:"القاهرة (CAI)", depart:"٩:٠٠ ص", arrive:"١١:٠٠ ص", duration:"٣س", price:"٥٨٠٠ ج.م"},
-  {airline:"مصر للطيران", flightNo:"MS 0455", from:"جدة (JED)", to:"القاهرة (CAI)", depart:"٧:٤٥ ص", arrive:"٩:٤٥ ص", duration:"٣س", price:"٦١٠٠ ج.م"},
-  {airline:"مصر للطيران", flightNo:"MS 0777", from:"لندن (LHR)", to:"القاهرة (CAI)", depart:"١١:٥٠ م", arrive:"٦:٤٠ ص (+١)", duration:"٥س ٥٠د", price:"١٤٥٠٠ ج.م"},
-  {airline:"الخطوط التركية", flightNo:"TK 0694", from:"إسطنبول (IST)", to:"القاهرة (CAI)", depart:"١:٠٠ م", arrive:"٣:٠٠ م", duration:"٢س", price:"٦٩٠٠ ج.م"},
-];
-
-const trains = [
-  {name:"قطار تالجو الأسباني VIP", trainNo:"٩٠٤", from:"القاهرة (رمسيس)", to:"الإسكندرية (مصر)", depart:"٨:٠٠ ص", duration:"٢س ١٥د", cls:"VIP", price:"١٥٠ ج.م"},
-  {name:"قطار عربات مكيفة درجة أولى", trainNo:"٩٩٩", from:"القاهرة (رمسيس)", to:"الأقصر", depart:"٩:٣٠ م", duration:"٩س ٣٠د (ليلي)", cls:"عربة نوم", price:"١٨٠٠ ج.م"},
-  {name:"قطار نوم مباشر", trainNo:"٨٨", from:"القاهرة (رمسيس)", to:"أسوان", depart:"٧:٠٠ م", duration:"١٢س (ليلي)", cls:"عربة نوم", price:"٢٢٠٠ ج.م"},
-  {name:"قطار مكيف درجة ثانية", trainNo:"١١٦", from:"القاهرة (رمسيس)", to:"بورسعيد", depart:"١١:٠٠ ص", duration:"٣س", cls:"مكيفة ثانية", price:"٩٠ ج.م"},
-  {name:"قطار مكيف درجة أولى", trainNo:"٢٦", from:"القاهرة (رمسيس)", to:"المنيا (تل العمارنة)", depart:"٦:٤٥ ص", duration:"٣س ١٥د", cls:"مكيفة أولى", price:"١٢٠ ج.م"},
-];
-
-const events = [
-  {name:"حفل الأوركسترا السيمفونية", venue:"المسرح الكبير — دار الأوبرا المصرية", category:"أوبرا", date:"٢٦ يوليو ٢٠٢٦", time:"٨:٠٠ م", price:"١٥٠ ج.م"},
-  {name:"عرض باليه بحيرة البجع", venue:"المسرح الكبير — دار الأوبرا المصرية", category:"أوبرا", date:"٢ أغسطس ٢٠٢٦", time:"٧:٣٠ م", price:"٢٠٠ ج.م"},
-  {name:"أمسية موسيقى عربية", venue:"مسرح الجمهورية — دار الأوبرا المصرية", category:"أوبرا", date:"٩ أغسطس ٢٠٢٦", time:"٨:٠٠ م", price:"١٠٠ ج.م"},
-  {name:"جولة مسائية بالمتحف المصري الكبير", venue:"المتحف المصري الكبير", category:"متاحف", date:"يوميًا", time:"٦:٠٠ – ١٠:٠٠ م", price:"٦٠٠ ج.م"},
-  {name:"تذكرة دخول متحف الحضارة", venue:"المتحف القومي للحضارة المصرية", category:"متاحف", date:"يوميًا", time:"٩:٠٠ ص – ٥:٠٠ م", price:"٢٠٠ ج.م"},
-  {name:"تذكرة متحف الفن الإسلامي", venue:"متحف الفن الإسلامي", category:"متاحف", date:"يوميًا عدا الجمعة", time:"٩:٠٠ ص – ٤:٠٠ م", price:"١٠٠ ج.م"},
-  {name:"تذكرة المتحف القبطي", venue:"المتحف القبطي — مصر القديمة", category:"متاحف", date:"يوميًا", time:"٩:٠٠ ص – ٤:٠٠ م", price:"١٠٠ ج.م"},
-  {name:"أمسية موسيقية أسبوعية", venue:"ساقية عبد المنعم الصاوي", category:"دور ثقافية", date:"كل خميس", time:"٩:٠٠ م", price:"٥٠ ج.م"},
-  {name:"معرض فني تشكيلي", venue:"بيت السناري — وزارة الثقافة", category:"دور ثقافية", date:"طوال الشهر", time:"١٠:٠٠ ص – ٦:٠٠ م", price:"٢٠ ج.م"},
-  {name:"أمسية شعرية", venue:"قصر الأمير طاز — وزارة الثقافة", category:"دور ثقافية", date:"كل ثلاثاء", time:"٧:٠٠ م", price:"٣٠ ج.م"},
-];
-
 /* ---------- Render helpers ---------- */
 function pin(){return icon("M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z M12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z");}
 function cup(){return icon("M4 3h13v9a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V3z M17 6h2a3 3 0 0 1 0 6h-2 M6 20h10");}
 function bed(){return icon("M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6 M3 18v2 M21 18v2 M3 12V6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v3 M13 8h6a2 2 0 0 1 2 2v2");}
 function hand(){return icon("M7 11V6a2 2 0 1 1 4 0v5 M11 11V5a2 2 0 1 1 4 0v6 M15 11V7a2 2 0 1 1 4 0v6a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3.4L3 13.5a1.8 1.8 0 0 1 3-2L7 13");}
-function plane(){return icon("M3 12l18-8-6 8 6 8-18-8z M3 12h9");}
-function trainIcon(){return icon("M6 3h12a2 2 0 0 1 2 2v10a4 4 0 0 1-4 4l2 3H8l2-3a4 4 0 0 1-4-4V5a2 2 0 0 1 2-2z M4 12h16 M8 8h8 M8 17.5h.01 M16 17.5h.01");}
-function ticketIcon(){return icon("M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8z M10 6v2 M10 11v2 M10 16v2");}
-
-/* ---------- Price helpers ----------
-   الأسعار في بيانات العرض مكتوبة بأرقام عربية (١٢٣) لأسباب تصميمية،
-   وهذه الدالة تحوّلها لأرقام إنجليزية عادية لاستخدامها في حسابات الدفع الفعلية. */
-function parsePrice(str){
-  if(!str) return 0;
-  const map = {'٠':'0','١':'1','٢':'2','٣':'3','٤':'4','٥':'5','٦':'6','٧':'7','٨':'8','٩':'9'};
-  const normalized = String(str).replace(/[٠-٩]/g, d => map[d]);
-  const m = normalized.match(/[\d.]+/);
-  return m ? parseFloat(m[0]) : 0;
-}
 
 document.getElementById('landmarksGrid').innerHTML = landmarks.map(l=>`
   <div class="card">
@@ -1217,6 +1121,7 @@ document.getElementById('landmarksGrid').innerHTML = landmarks.map(l=>`
     <div class="card-body">
       <h3>${l.name}</h3>
       <p>${l.desc}</p>
+      <a class="landmark-registry-link" href="antiques-explorer.html?q=${encodeURIComponent(l.registryName||l.name)}" target="_blank">🏺 بيانات الأثر الرسمية في السجل</a>
       <button class="card-cta" onclick="openBooking('جولة إلى ${l.name}')">احجز جولة إلى هنا</button>
     </div>
   </div>`).join('');
@@ -1263,108 +1168,29 @@ document.getElementById('shopGrid').innerHTML = shopItems.map((p,i)=>`
     </div>
   </div>`).join('');
 
-/* ---------- Flights ---------- */
-let currentFlightResults = [];
-function renderFlightResults(list, note){
-  document.getElementById('flightsNote').textContent = note;
-  document.getElementById('flightResults').innerHTML = list.map((f,i)=>`
-    <div class="card">
-      <div class="card-media" style="background:linear-gradient(135deg,var(--teal),var(--teal-dark))">${plane()}<span class="card-tag">${f.airline}</span></div>
-      <div class="card-body">
-        <h3>${f.from} ← ${f.to}</h3>
-        <p>رحلة رقم ${f.flightNo} · إقلاع ${f.depart} · وصول ${f.arrive} · مدة الرحلة ${f.duration}</p>
-        <div class="card-meta"><span>${f.price} / للفرد</span><span>⭐ متاح للحجز</span></div>
-        <button class="card-cta" onclick="openTripBooking('flight', ${i})">احجز هذه الرحلة</button>
-      </div>
-    </div>`).join('') || '<p style="color:#5b5646">لا توجد رحلات مطابقة لبحثك، جرّب مدينة أخرى.</p>';
-}
-function searchFlights(e){
-  e.preventDefault();
-  const from = document.getElementById('flightFrom').value;
-  currentFlightResults = flights.filter(f => !from || f.from.includes(from));
-  renderFlightResults(currentFlightResults, `عُثر على ${currentFlightResults.length} رحلة مطابقة (بيانات تجريبية لأغراض العرض).`);
-  document.getElementById('flightResults').scrollIntoView({behavior:'smooth', block:'nearest'});
-  return false;
-}
-currentFlightResults = flights.slice();
-renderFlightResults(currentFlightResults, 'رحلات مقترحة إلى القاهرة — استخدم البحث أعلاه لتضييق النتائج.');
-
-/* ---------- Trains ---------- */
-let currentTrainResults = [];
-function renderTrainResults(list, note){
-  document.getElementById('trainsNote').textContent = note;
-  document.getElementById('trainResults').innerHTML = list.map((t,i)=>`
-    <div class="card">
-      <div class="card-media" style="background:linear-gradient(135deg,#1e5c8a,#123c5c)">${trainIcon()}<span class="card-tag">${t.cls}</span></div>
-      <div class="card-body">
-        <h3>${t.from} ← ${t.to}</h3>
-        <p>قطار رقم ${t.trainNo} · موعد الانطلاق ${t.depart} · مدة الرحلة ${t.duration}</p>
-        <div class="card-meta"><span>${t.price} / للفرد</span><span>⭐ متاح للحجز</span></div>
-        <button class="card-cta" onclick="openTripBooking('train', ${i})">احجز هذا القطار</button>
-      </div>
-    </div>`).join('') || '<p style="color:var(--parchment-2)">لا توجد قطارات مطابقة لبحثك، جرّب وجهة أخرى.</p>';
-}
-function searchTrains(e){
-  e.preventDefault();
-  const to = document.getElementById('trainTo').value;
-  currentTrainResults = trains.filter(t => !to || t.to.includes(to));
-  renderTrainResults(currentTrainResults, `عُثر على ${currentTrainResults.length} قطار مطابق (بيانات تجريبية لأغراض العرض).`);
-  document.getElementById('trainResults').scrollIntoView({behavior:'smooth', block:'nearest'});
-  return false;
-}
-currentTrainResults = trains.slice();
-renderTrainResults(currentTrainResults, 'رحلات قطارات مقترحة من القاهرة — استخدم البحث أعلاه لتضييق النتائج.');
-
-/* ---------- Events (Opera / Museums / Culture houses) ---------- */
-const eventCategories = ['الكل', ...new Set(events.map(ev=>ev.category))];
-function renderEvents(category){
-  const list = category==='الكل' ? events : events.filter(ev=>ev.category===category);
-  document.getElementById('eventsGrid').innerHTML = list.map(ev=>`
-    <div class="card">
-      <div class="card-media" style="background:linear-gradient(135deg,var(--gold),var(--terracotta))">${ticketIcon()}<span class="card-tag">${ev.category}</span></div>
-      <div class="card-body">
-        <h3>${ev.name}</h3>
-        <p>${ev.venue}<br>التاريخ: ${ev.date} · الموعد: ${ev.time}</p>
-        <div class="card-meta"><span>${ev.price==='دخول مجاني'?ev.price:ev.price+' للتذكرة'}</span><span>🎟️ حجز فوري</span></div>
-        <button class="card-cta" onclick='openBooking(${JSON.stringify("حجز تذكرة: " + ev.name + " — " + ev.venue)})'>احجز تذكرتك</button>
-      </div>
-    </div>`).join('');
-}
-const eventsTabsEl = document.getElementById('eventsTabs');
-eventCategories.forEach((cat,i)=>{
-  const tab = document.createElement('button');
-  tab.className = 'event-tab' + (i===0?' active':'');
-  tab.textContent = cat;
-  tab.onclick = ()=>{
-    document.querySelectorAll('.event-tab').forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-    renderEvents(cat);
-  };
-  eventsTabsEl.appendChild(tab);
-});
-renderEvents('الكل');
-
-/* Routes tabs */
+/* Routes tabs (٥ عناصر: ٤ مسارات جاهزة + مسار "اصنع مسار زيارتك") */
 const tabsEl = document.getElementById('routeTabs');
 const panelsEl = document.getElementById('routePanels');
+function switchRouteTab(tab, panelId){
+  document.querySelectorAll('.route-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.route-panel').forEach(p=>p.classList.remove('active'));
+  tab.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
 routes.forEach((r,i)=>{
   const tab = document.createElement('button');
   tab.className = 'route-tab' + (i===0?' active':'');
-  tab.textContent = r.tab;
-  tab.onclick = ()=>{
-    document.querySelectorAll('.route-tab').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.route-panel').forEach(p=>p.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById('panel-'+i).classList.add('active');
-  };
+  tab.textContent = (r.special? '✨ ':'') + r.tab;
+  tab.onclick = ()=> switchRouteTab(tab, 'panel-'+i);
   tabsEl.appendChild(tab);
 
   const panel = document.createElement('div');
   panel.className = 'route-panel' + (i===0?' active':'');
   panel.id = 'panel-'+i;
   panel.innerHTML = `
+    ${r.special? '<p style="color:var(--gold-light);font-size:.85rem;margin-bottom:16px;">🎭 مسار تفسيري درامي مطوَّر — ٦ محطات مترابطة في حبكة واحدة من الماء إلى الروح، مع عرض ضوئي وصوتي وراوٍ مدرَّب.</p>':''}
     <div class="timeline">
-      ${r.stops.map(s=>`<div class="t-stop"><h4>${s.t}</h4><p>${s.d}</p></div>`).join('')}
+      ${r.stops.map(s=>`<div class="t-stop"><h4>${s.t}</h4><p>${s.d}</p>${s.registryName?`<a class="landmark-registry-link" style="margin-top:8px;" href="antiques-explorer.html?q=${encodeURIComponent(s.registryName)}" target="_blank">🏺 بيانات الأثر الرسمية</a>`:''}</div>`).join('')}
     </div>
     <div class="route-meta">
       <span><b>المدة:</b> ${r.duration}</span>
@@ -1373,6 +1199,95 @@ routes.forEach((r,i)=>{
     <button class="btn btn-gold" style="margin-top:20px" onclick="openBooking('${r.tab}')">احجز هذا المسار مع مرشد</button>
   `;
   panelsEl.appendChild(panel);
+});
+
+/* ---------- المسار الخامس: اصنع مسار زيارتك (بانى مسار تفاعلي) ---------- */
+const builderTabIndex = routes.length; // = 4
+const builderTab = document.createElement('button');
+builderTab.className = 'route-tab builder-tab';
+builderTab.textContent = '🛠️ اصنع مسار زيارتك';
+builderTab.onclick = ()=> switchRouteTab(builderTab, 'panel-'+builderTabIndex);
+tabsEl.appendChild(builderTab);
+
+const builderOptions = [
+  ...landmarks.map(x=>({name:x.name, group:'معالم'})),
+  ...crafts.map(x=>({name:x.name, group:'حرف تراثية'})),
+  ...dining.map(x=>({name:x.name, group:'مطاعم ومقاهي'})),
+];
+
+const builderPanel = document.createElement('div');
+builderPanel.className = 'route-panel';
+builderPanel.id = 'panel-'+builderTabIndex;
+builderPanel.innerHTML = `
+  <p class="builder-intro">اختر ما يهمّك من المعالم والحرف والمطاعم أدناه، وسنرتّبها تلقائيًا في مسار واحد بترتيب منطقي، ثم يمكنك حجزه كجولة كاملة بمرشد — تمامًا مثل المسارات المقترحة الأخرى، لكن بتصميمك أنت.</p>
+  <div class="builder-groups">
+    <div class="builder-group">
+      <h4>المعالم الأثرية</h4>
+      <div class="builder-chips" id="builderChips-معالم"></div>
+    </div>
+    <div class="builder-group">
+      <h4>الحرف التراثية</h4>
+      <div class="builder-chips" id="builderChips-حرف تراثية"></div>
+    </div>
+    <div class="builder-group" style="grid-column:1 / -1;">
+      <h4>مطاعم ومقاهي</h4>
+      <div class="builder-chips" id="builderChips-مطاعم ومقاهي"></div>
+    </div>
+  </div>
+  <div class="builder-actions">
+    <button class="btn btn-teal" id="buildRouteBtn">🧭 أنشئ مسارى الآن</button>
+    <span class="builder-count" id="builderCount">لم تختر أي عنصر بعد</span>
+  </div>
+  <div class="builder-result" id="builderResult"></div>
+`;
+panelsEl.appendChild(builderPanel);
+
+['معالم','حرف تراثية','مطاعم ومقاهي'].forEach(group=>{
+  const wrap = builderPanel.querySelector(`#builderChips-${CSS.escape(group)}`);
+  builderOptions.filter(o=>o.group===group).forEach((o,idx)=>{
+    const id = 'chip-'+group.replace(/\s/g,'')+'-'+idx;
+    const label = document.createElement('label');
+    label.className = 'chip-check';
+    label.innerHTML = `<input type="checkbox" id="${id}" value="${o.name}"> ${o.name}`;
+    label.querySelector('input').addEventListener('change', ()=>{
+      label.classList.toggle('sel', label.querySelector('input').checked);
+      updateBuilderCount();
+    });
+    wrap.appendChild(label);
+  });
+});
+
+function updateBuilderCount(){
+  const checked = builderPanel.querySelectorAll('input[type=checkbox]:checked');
+  const countEl = document.getElementById('builderCount');
+  countEl.textContent = checked.length ? `تم اختيار ${checked.length} عنصر — اضغط "أنشئ مسارى الآن"` : 'لم تختر أي عنصر بعد';
+}
+
+let lastCustomRouteStops = [];
+document.getElementById('buildRouteBtn').addEventListener('click', ()=>{
+  const checked = [...builderPanel.querySelectorAll('input[type=checkbox]:checked')].map(c=>c.value);
+  const resultEl = document.getElementById('builderResult');
+  if(checked.length < 2){
+    resultEl.className = 'builder-result show';
+    resultEl.innerHTML = `<p style="color:var(--terracotta)">اختر عنصرين على الأقل لبناء مسار متكامل 🙂</p>`;
+    lastCustomRouteStops = [];
+    return;
+  }
+  lastCustomRouteStops = checked;
+  const estMinutes = checked.length * 35;
+  const hours = Math.floor(estMinutes/60), mins = estMinutes%60;
+  resultEl.className = 'builder-result show';
+  resultEl.innerHTML = `
+    <h4>مسار زيارتك المخصص (${checked.length} محطات)</h4>
+    <div class="timeline">
+      ${checked.map((name,i)=>`<div class="t-stop"><h4>${i+1}. ${name}</h4><p>محطة ضمن مسارك الشخصي — يمكن للمرشد ترتيب أفضل طريق سيرًا بين هذه المحطات حسب موقعك.</p></div>`).join('')}
+    </div>
+    <div class="route-meta">
+      <span><b>المدة التقديرية:</b> ${hours>0?hours+' ساعة ':''}${mins>0?mins+' دقيقة':''}</span>
+      <span><b>عدد المحطات:</b> ${checked.length}</span>
+    </div>
+    <button class="btn btn-gold" style="margin-top:20px" onclick="openBooking('مسار مخصص: ${checked.join(' ← ')}')">احجز مسارى المخصص مع مرشد</button>
+  `;
 });
 
 /* ---------- Cart ---------- */
@@ -1390,20 +1305,16 @@ async function confirmCheckout(){
   const box = document.querySelector('#checkoutModal .modal-box');
   const address = box.querySelector('input[type=text]').value || '';
   const paymentMethod = box.querySelector('.pay-opt.sel')?.textContent || 'InstaPay';
-  const amount = cart.reduce((sum,name)=>{
-    const item = shopItems.find(p=>p.name===name);
-    return sum + (item ? parsePrice(item.price) : 0);
-  }, 0);
 
-  const result = await apiPost('/api/orders', {items: cart, address, paymentMethod, amount});
+  const result = await apiPost('/api/orders', {items: cart, address, paymentMethod});
 
   if(result && result.ok){
     const pay = await apiPost('/api/payments/initiate', {
-      refId: result.order.id, refType:'order', amount, method: paymentMethod
+      refId: result.order.id, refType:'order', amount: 0, method: paymentMethod
     });
-    alert(`تم استلام طلبك بنجاح! رقم الطلب: ${result.order.id}\nالمبلغ الإجمالي: ${amount} ج.م\n${pay?.message || 'سيصلك تأكيد الدفع عبر الرسائل النصية.'}`);
+    alert(`تم استلام طلبك بنجاح! رقم الطلب: ${result.order.id}\n${pay?.message || 'سيصلك تأكيد الدفع عبر الرسائل النصية.'}`);
   } else {
-    alert(`تم استلام طلبك (وضع تجريبي بدون خادم متصل).\nالمبلغ الإجمالي التقديري: ${amount} ج.م\nلتفعيل الحفظ الفعلي والدفع الحقيقي، فعّل رابط الخادم في أعلى الكود (API_BASE).`);
+    alert('تم استلام طلبك (وضع تجريبي بدون خادم متصل). لتفعيل الحفظ الفعلي والدفع الحقيقي، فعّل رابط الخادم في أعلى الكود (API_BASE).');
   }
   closeModal('checkoutModal');
   cart = [];
@@ -1436,51 +1347,6 @@ async function confirmBooking(){
   closeModal('bookingModal');
 }
 function closeModal(id){document.getElementById(id).classList.remove('show');}
-
-/* ---------- Trip booking modal (flights / trains) ---------- */
-let currentTrip = null;
-function openTripBooking(kind, index){
-  const item = kind==='flight' ? currentFlightResults[index] : currentTrainResults[index];
-  currentTrip = {kind, item};
-  const title = kind==='flight'
-    ? `حجز رحلة طيران: ${item.from} ← ${item.to}`
-    : `حجز تذكرة قطار: ${item.from} ← ${item.to}`;
-  const summary = kind==='flight'
-    ? `${item.airline} · رحلة ${item.flightNo} · إقلاع ${item.depart} · السعر ${item.price} للفرد`
-    : `قطار رقم ${item.trainNo} (${item.cls}) · انطلاق ${item.depart} · السعر ${item.price} للفرد`;
-  document.getElementById('tripTitle').textContent = title;
-  document.getElementById('tripSummary').textContent = summary;
-  document.getElementById('tripPax').value = kind==='flight'
-    ? (document.getElementById('flightPax').value || 1)
-    : (document.getElementById('trainPax').value || 1);
-  document.getElementById('tripModal').classList.add('show');
-}
-async function confirmTrip(){
-  if(!currentTrip) return;
-  const { kind, item } = currentTrip;
-  const name = document.getElementById('tripName').value || 'مسافر';
-  const phone = document.getElementById('tripPhone').value || '';
-  const pax = parseInt(document.getElementById('tripPax').value) || 1;
-  const paymentMethod = document.getElementById('tripPaySelect').querySelector('.pay-opt.sel')?.textContent || 'InstaPay';
-  const amount = parsePrice(item.price) * pax;
-
-  const endpoint = kind==='flight' ? '/api/flights/book' : '/api/trains/book';
-  const payload = kind==='flight'
-    ? {flightNo:item.flightNo, from:item.from, to:item.to, date: document.getElementById('flightDate').value, name, phone, pax, amount, paymentMethod}
-    : {trainNo:item.trainNo, from:item.from, to:item.to, date: document.getElementById('trainDate').value, name, phone, pax, amount, paymentMethod};
-
-  const result = await apiPost(endpoint, payload);
-
-  if(result && result.ok){
-    const refId = result.booking?.id || result.id;
-    const pay = await apiPost('/api/payments/initiate', {refId, refType:kind, amount, method:paymentMethod});
-    alert(`تم تأكيد حجزك بنجاح! رقم الحجز: ${refId}\nالمبلغ الإجمالي: ${amount} ج.م\n${pay?.message || 'سيتم تحويلك لإتمام الدفع.'}`);
-  } else {
-    alert(`تم تسجيل حجزك (وضع تجريبي بدون خادم متصل).\nالمبلغ الإجمالي التقديري: ${amount} ج.م\nلتفعيل الحفظ الفعلي وربط أنظمة الحجز الحقيقية (شركات الطيران / سكك حديد مصر)، فعّل رابط الخادم في أعلى الكود (API_BASE) واربطه بمزوّدي الخدمة.`);
-  }
-  closeModal('tripModal');
-  currentTrip = null;
-}
 function selectPay(el){
   el.parentElement.querySelectorAll('.pay-opt').forEach(p=>p.classList.remove('sel'));
   el.classList.add('sel');
