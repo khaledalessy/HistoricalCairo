@@ -1318,7 +1318,7 @@ document.getElementById('landmarksGrid').innerHTML = landmarks.map(l=>`
     <div class="card-body">
       <h3>${l.name}</h3>
       <p>${l.desc}</p>
-      <a class="landmark-registry-link" href="antiques-explorer.html?q=${encodeURIComponent(l.registryName||l.name)}" target="_blank">🏺 بيانات الأثر الرسمية في السجل</a>
+      <a class="landmark-registry-link" href="antiques_explorer%20(9).html?q=${encodeURIComponent(l.registryName||l.name)}" target="_blank">🏺 بيانات الأثر الرسمية في السجل</a>
       <button class="card-cta" onclick="openBooking('جولة إلى ${l.name}')">احجز جولة إلى هنا</button>
     </div>
   </div>`).join('');
