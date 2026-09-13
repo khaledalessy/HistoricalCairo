@@ -1467,13 +1467,16 @@ routes.forEach((r,i)=>{
   panel.innerHTML = `
     ${r.special ? '<p style="color:var(--gold-light);font-size:.85rem;margin-bottom:16px;">🎭 مسار تفسيري درامي مطوَّر — ٦ محطات مترابطة في حبكة واحدة من الماء إلى الروح، مع عرض ضوئي وصوتي وراوٍ مدرَّب.</p>' : ''}
     <div class="timeline">
-      ${r.stops.map(s=>`<div class="t-stop"><h4>${s.t}</h4><p>${s.d}</p>${s.registryName ? `<a class="landmark-registry-link" style="margin-top:8px;" href="antiques-explorer.html?q=${encodeURIComponent(s.registryName)}" target="_blank">🏺 بيانات الأثر الرسمية</a>` : ''}</div>`).join('')}
+      ${r.stops.map(s=>`<div class="t-stop"><h4>${s.t}</h4><p>${s.d}</p></div>`).join('')}
     </div>
     <div class="route-meta">
       <span><b>المدة:</b> ${r.duration}</span>
       <span><b>مستوى الجهد:</b> ${r.difficulty}</span>
     </div>
-    <button class="btn btn-gold" style="margin-top:20px" onclick="openBooking('${r.tab}')">احجز هذا المسار مع مرشد</button>
+    <div style="display:flex;gap:14px;margin-top:20px;flex-wrap:wrap;">
+      ${r.special ? `<a class="btn btn-teal" href="water-to-soul-trail.html" target="_blank">🔍 تفقد المسار</a>` : ''}
+      <button class="btn btn-gold" onclick="openBooking('${r.tab}')">احجز هذا المسار مع مرشد</button>
+    </div>
   `;
   panelsEl.appendChild(panel);
 });
