@@ -1218,8 +1218,7 @@ const routes = [
       {t:"برج المأخذ وسور مجرى العيون (عين الصيرة)", d:"الفصل الثالث: عندما أصبح الماء هندسة — كيف حمل المهندسون الماء إلى القلعة دون مضخة حديثة.", registryName:"قناطر المياه"},
       {t:"مسجد السلطان حسن ومسجد الرفاعي", d:"الفصل الرابع: عندما تحدث السلطة بلغة الحجر — حوار معماري بين سلطان مملوكي وسلطان أراد أن يبقى اسمه.", registryName:"مسجد السلطان حسن"},
       {t:"قصر الأمير طاز", d:"الفصل الخامس: عندما يفتح القصر بابه للإنسان — ظلال بشرية تروي التاريخ الاجتماعي خلف واجهة القصر.", registryName:"قصر الأمير طاز"},
-      {t:"التكية المولوية بشارع السيوفية", d:"الفصل السادس: عندما يتحول التاريخ إلى روح — من صدى الماء إلى دوران الدراويش، .", registryName:"التكية المولوية"},
-      {t:"سبيل أم عباس المولوية بشارع السيوفية", d:"الفصل السابع والختام: بمثابة صندوق الذاكرة الختامي يعرض فيه بصريا ملخص الرحلة — من صدى الماء إلى الروح .", registryName:"سبيل أم عباس"},
+      {t:"التكية المولوية بشارع السيوفية", d:"الفصل السادس والختام: عندما يتحول التاريخ إلى روح — من صدى الماء إلى دوران الدراويش، ثم صندوق الذاكرة الختامي.", registryName:"التكية المولوية"},
     ]
   },
 ];
@@ -1314,11 +1313,17 @@ function parsePrice(str){
 
 document.getElementById('landmarksGrid').innerHTML = landmarks.map(l=>`
   <div class="card">
-    <div class="card-media">${pin()}<span class="card-tag">${l.era}</span></div>
+    <div class="card-media">
+      <a href="antiques-explorer.html?q=${encodeURIComponent(l.registryName||l.name)}&view=map" target="_blank" title="عرض الموقع الجغرافي على الخريطة" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;">${pin()}</a>
+      <span class="card-tag">${l.era}</span>
+    </div>
     <div class="card-body">
       <h3>${l.name}</h3>
       <p>${l.desc}</p>
-      <a class="landmark-registry-link" href="antiques_explorer%20(9).html?q=${encodeURIComponent(l.registryName||l.name)}" target="_blank">🏺 بيانات الأثر الرسمية في السجل</a>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a class="landmark-registry-link" href="antiques-explorer.html?q=${encodeURIComponent(l.registryName||l.name)}" target="_blank">🏺 بيانات الأثر الرسمية في السجل</a>
+        <a class="landmark-registry-link" href="antiques-explorer.html?q=${encodeURIComponent(l.registryName||l.name)}&view=map" target="_blank">📍 الموقع الجغرافي على الخريطة</a>
+      </div>
       <button class="card-cta" onclick="openBooking('جولة إلى ${l.name}')">احجز جولة إلى هنا</button>
     </div>
   </div>`).join('');
@@ -1466,7 +1471,7 @@ routes.forEach((r,i)=>{
   panel.className = 'route-panel' + (i===0?' active':'');
   panel.id = 'panel-'+i;
   panel.innerHTML = `
-    ${r.special ? '<p style="color:var(--gold-light);font-size:.85rem;margin-bottom:16px;">🎭 مسار تفسيري درامي مطوَّر — 7 محطات مترابطة في حبكة واحدة من الماء إلى الروح، مع عرض ضوئي وصوتي وراوٍ مدرَّب.</p>' : ''}
+    ${r.special ? '<p style="color:var(--gold-light);font-size:.85rem;margin-bottom:16px;">🎭 مسار تفسيري درامي مطوَّر — ٦ محطات مترابطة في حبكة واحدة من الماء إلى الروح، مع عرض ضوئي وصوتي وراوٍ مدرَّب.</p>' : ''}
     <div class="timeline">
       ${r.stops.map(s=>`<div class="t-stop"><h4>${s.t}</h4><p>${s.d}</p></div>`).join('')}
     </div>
