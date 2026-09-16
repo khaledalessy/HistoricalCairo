@@ -978,8 +978,7 @@
 /* ---------- إعداد الاتصال بالخادم ----------
    ضع هنا رابط الخادم الخلفي بعد نشره (https://khaledalessy.github.io/Historical-Cairo/).
    إن تُرك فارغًا "" سيعمل الموقع في وضع تجريبي محلي بدون خادم. */
-const API_BASE = "https://khaledalessy.github.io/Historical-Cairo/";
-
+const API_BASE = "https://your-backend-domain.com";
 async function apiPost(path, body){
   if(!API_BASE) return null; // وضع تجريبي بدون خادم
   try{
